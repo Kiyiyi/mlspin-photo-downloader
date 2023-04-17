@@ -1,6 +1,7 @@
 import requests
 import os
 
+# change property name based on the current property
 property = "8-florence-st"
 count = 0
 url = input("Enter the URL: ").strip()[:-1]
@@ -9,7 +10,7 @@ total_images = int(input("Enter the total number of images you want to download:
 
 
 # set the directory to save the images in
-save_dir = "C:\\Users\\kaijr\\Dropbox\\RoDojo\\Site Folders\\alexwongy\\Photos\\Property-photos\\"+property
+save_dir = "C:\\define-path"+property
 
 if not os.path.exists(save_dir):
     os.makedirs(save_dir)
@@ -20,7 +21,7 @@ with open("images.txt", "r") as f:
 # loop through each URL and download the image
 for i in range(total_images):
  # remove any whitespace or newline characters
-    filename = "alex-wong-" + property + "-" + str(i) + ".jpg" # get the filename from the URL
+    filename = "first-last-" + property + "-" + str(i) + ".jpg" # get the filename from the URL
     filepath = os.path.join(save_dir, filename) # create the full file path
     temp_url = url + str(i) # remove any whitespace or newline characters
     response = requests.get(temp_url, stream=True) # send a GET request to the URL
